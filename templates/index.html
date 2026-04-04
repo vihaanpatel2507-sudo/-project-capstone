@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Event Registration</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Integrated CSS (always light) -->
+  <style>
+  :root{
+    --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+    --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+    --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+    --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+    --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+    --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+    --color-bg:#fdfcf8;           /* lighter background */
+    --color-surface:#ffffff;
+    --color-surface-2:#f7f6f2;
+    --color-surface-offset:#edeae5;
+    --color-border:#d4d1ca;
+    --color-divider:#dcd9d5;
+    --color-text:#28251d;
+    --color-text-muted:#6e6b65;
+    --color-primary:#01696f;
+    --color-primary-highlight:#cedcd8;
+    --color-success:#437a22;
+    --color-error:#a12c7b;
+    --radius-md:.8rem;--radius-lg:1rem;--radius-xl:1.25rem;--radius-full:9999px;
+    --shadow-sm:0 1px 2px rgba(30,30,30,.06);--shadow-md:0 12px 32px rgba(30,30,30,.08);
+    --font-display:'Manrope',sans-serif;--font-body:'Instrument Sans',sans-serif
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#fdfcf8,#f3f0e8);
+    color:var(--color-text);
+    font:400 var(--text-base)/1.55 var(--font-body)
+  }
+  button,input,select,textarea{font:inherit}
+  button{cursor:pointer}
+  a{text-decoration:none;color:inherit}
+  .page{max-width:1200px;margin:0 auto;padding:24px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .brand svg{width:42px;height:42px;color:var(--color-primary)}
+  .brand h1{margin:0;font:800 var(--text-lg)/1.1 var(--font-display)}
+  .hero,.card{background:var(--color-surface);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+  .hero{padding:20px;margin-bottom:20px}
+  .hero h2{margin:0 0 8px;font:800 var(--text-xl)/1.1 var(--font-display)}
+  .hero p{margin:0;color:var(--color-text-muted)}
+  .card-body{padding:20px}
+  form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field.full{grid-column:1/-1}
+  label{font-size:var(--text-sm);font-weight:700}
+  input,select,textarea{
+    width:100%;
+    padding:14px 16px;
+    border-radius:var(--radius-md);
+    border:1px solid var(--color-border);
+    background:var(--color-surface-2);
+    color:var(--color-text)
+  }
+  textarea{min-height:110px;resize:vertical}
+  .footer-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:12px;margin-top:4px}
+  .btn{
+    border:none;
+    border-radius:var(--radius-full);
+    padding:12px 18px;
+    background:var(--color-primary);
+    color:#fff;
+    font-weight:700
+  }
+  .btn.secondary{
+    background:var(--color-surface-offset);
+    color:var(--color-text)
+  }
+  .success{color:var(--color-success);font-weight:700}
+  .error{color:var(--color-error);font-weight:700}
+  .note{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:4px}
+  @media (max-width:960px){form{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" fill="none" aria-label="CampusFlow logo">
+          <rect x="6" y="8" width="52" height="48" rx="12" stroke="currentColor" stroke-width="4"></rect>
+          <path d="M18 24L32 16L46 24L32 32L18 24Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"></path>
+          <path d="M24 31V40C24 40 27 45 32 45C37 45 40 40 40 40V31" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+        </svg>
+        <div><h1>Campus Event Registration</h1></div>
+      </div>
+      
+    </header>
+
+    <section class="hero">
+      
+      <p>Fill in your details to register for campus events.</p>
+    </section>
+
+    <article class="card">
+      <div class="card-body">
+        <form id="registrationForm">
+          <div class="field">
+            <label>Full name</label>
+            <input required name="full_name" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label>Student ID</label>
+            <input required name="student_id" placeholder="e.g. KU2507UXXXX" />
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input required type="email" name="email" placeholder="example@gmail.com" />
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input required name="phone" placeholder="XXX-XXXXXXXX" />
+          </div>
+          <div class="field">
+            <label>Department</label>
+            <select name="department" required>
+              <option value="">Select department</option>
+              <option>Computer Engineering</option>
+           
+              <option>Electronics</option>
+              <option>Mechanical</option>
+              <option>Cyber </option>
+              <option>MBA</option>
+              <option>BCA</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Year / Semester</label>
+            <select name="year" required>
+              <option value="">Select year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+              
+            </select>
+          </div>
+          <div class="field">
+            <label>Event type</label>
+            <select name="event_type" required>
+              <option value="">Select type</option>
+              <option>Workshop</option>
+              <option>Hackathon</option>
+              <option>Cultural</option>
+              <option>Sports</option>
+              <option>Seminar</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Event name</label>
+            <select name="event_name" required>
+              <option value="">Select event</option>
+              <option>AI Bootcamp</option>
+              <option>Robotics Challenge</option>
+              <option>Startup Pitch</option>
+              <option>Dance Fest</option>
+              <option>Cricket Tournament</option>
+              <option>Cybersecurity Seminar</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Registration category</label>
+            <select name="category" required>
+              <option>Individual</option>
+              <option>Team</option>
+              <option>Volunteer</option>
+              
+            </select>
+          </div>
+          <div class="field">
+            <label>Team size</label>
+            <input type="number" name="team_size" min="1" max="10" value="1" />
+          </div>
+
+          <div class="field full">
+            <label>Special notes</label>
+            <textarea name="notes" placeholder=" "></textarea>
+          </div>
+
+          <div class="footer-actions">
+            <button type="reset" class="btn secondary">Clear</button>
+            <button type="submit" class="btn">Submit registration</button>
+          </div>
+          <div class="field full">
+            <div id="message" class="note"></div>
+          </div>
+        </form>
+      </div>
+    </article>
+  </div>
+
+<script>
+  const form = document.getElementById('registrationForm');
+  const message = document.getElementById('message');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const payload = Object.fromEntries(fd.entries());
+    // Ensure team_size is a number for the database
+    payload.team_size = Number(payload.team_size || 1);
+
+    message.className = 'note';
+    message.textContent = 'Submitting registration...';
+
+    try {
+      const res = await fetch('/api/registrations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Submission failed');
+      
+      form.reset();
+      message.className = 'success';
+      message.textContent = `Registration saved successfully for ${data.full_name}.`;
+    } catch (err) {
+      message.className = 'error';
+      message.textContent = err.message;
+    }
+  });
+  </script>
+</body>
+</html>
