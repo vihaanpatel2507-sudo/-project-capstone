@@ -1,17 +1,17 @@
-# 🎓 Campus Event Registration System
+#  Campus Event Registration System
 
 A real-time web application for managing college event registrations. It features a student-facing registration form and an automated Admin Dashboard with live data visualization.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Backend:** Python (Flask, Flask-SocketIO)
 * **Frontend:** HTML5, CSS3, JavaScript (Chart.js)
 * **Database:** MySQL
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 ### 1. Database Configuration
 1.  Open **MySQL Workbench**.
