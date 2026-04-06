@@ -10,6 +10,18 @@ A real-time web application for managing college event registrations. It feature
 * **Database:** MySQL
 
 ---
+## Project Structure
+
+```text
+project/
+│
+├─ app.py
+├─ database.sql
+├─ requirements.txt
+└─ templates/
+   ├─ index.html        
+   └─ admin.html       
+```
 
 ## Setup & Installation
 
@@ -21,7 +33,13 @@ A real-time web application for managing college event registrations. It feature
 ### 2. Environment Setup
 Install the required Python libraries using the terminal:
 
+```bash
 py -m pip install flask flask-socketio mysql-connector-python flask-cors
+```
+
+```bash
+pip install -r requirements.txt
+```
 
 ### 3. Running the Application
 Start the server from your project directory:
@@ -34,8 +52,4 @@ Registration Form: http://127.0.0.1:5000/
 
 Admin Dashboard: http://127.0.0.1:5000/admin
 
- ### Key Features
-Real-time Feed: New registrations appear instantly on the dashboard without refreshing.
-Dynamic Analytics: Bar graphs automatically update and color-code by event type.
-Data Management: Admins can view student details and delete entries directly from the dashboard.
-Database Sync: All form submissions are permanently stored in the MySQL registrations table.
+ 
