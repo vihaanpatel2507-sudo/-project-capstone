@@ -14,7 +14,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="vihaan@2507",   # consider loading from env var in production
+        password="vihaan@2507",  # change if needed
         database="college_event"
     )
 
@@ -46,9 +46,9 @@ def register():
     cursor = conn.cursor()
 
     sql = """
-        INSERT INTO registrations 
-        (full_name, student_id, email, phone, department, year, event_type, event_name, category, team_size, notes) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO registrations 
+    (full_name, student_id, email, phone, department, year, event_type, event_name, category, team_size, notes) 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
         data.get('full_name'),
@@ -71,7 +71,6 @@ def register():
     cursor.close()
     conn.close()
 
-    # Notify all connected clients that a new registration was created
     socketio.emit('registration:new', {
         "id": new_id,
         "full_name": data.get('full_name')
@@ -112,13 +111,13 @@ def get_stats():
     return jsonify({"total": total})
 
 
+# IMPORTANT: route now includes <int:id>
 @app.route('/api/registrations/<int:id>', methods=['DELETE'])
 def delete_registration(id):
     """Delete a registration by id and emit a socket event."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    # Check if the record exists
     cursor.execute("SELECT id FROM registrations WHERE id = %s", (id,))
     row = cursor.fetchone()
     if not row:
@@ -132,7 +131,6 @@ def delete_registration(id):
     cursor.close()
     conn.close()
 
-    # Notify clients that a registration was deleted
     socketio.emit('registration:deleted', {"id": id})
 
     return jsonify({"message": "Deleted", "id": id}), 200
