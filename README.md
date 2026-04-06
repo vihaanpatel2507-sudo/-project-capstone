@@ -28,7 +28,7 @@ project/
 ### 1. Database Configuration
 1.  Open **MySQL Workbench**.
 2.  Run the `database.sql` script to create the `college_event` database and `registrations` table.
-3.  Ensure your password in `app.py` matches your MySQL root password (e.g., `vihaan@2507`).
+3.  Ensure your password in `app.py` matches your MySQL root password.
 
 ### 2. Environment Setup
 Install the required Python libraries using the terminal:
