@@ -1,8 +1,8 @@
--- 1. Create the database
+
 CREATE DATABASE IF NOT EXISTS college_event;
 USE college_event;
 
--- 2. Create the table with columns matching your index.html fields
+
 CREATE TABLE IF NOT EXISTS registrations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   full_name VARCHAR(255) NOT NULL,
