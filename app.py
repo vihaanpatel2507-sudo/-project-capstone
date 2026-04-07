@@ -111,7 +111,7 @@ def get_stats():
     return jsonify({"total": total})
 
 
-# IMPORTANT: route now includes <int:id>
+
 @app.route('/api/registrations/<int:id>', methods=['DELETE'])
 def delete_registration(id):
     """Delete a registration by id and emit a socket event."""
